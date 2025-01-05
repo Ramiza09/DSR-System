@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSR Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-section label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .filter-section select, .form-section input, .form-section button {
+            padding: 10px;
+            margin-left: 10px;
+            background: #e7edf7;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .filter-section select:focus, 
+        .form-section input:focus, 
+        .form-section button:focus {
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+        }
+
+        .form-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-section input, .form-section button {
+            flex: 1;
+        }
+
+        .form-section button {
+            background: #0056b3;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        .form-section button:hover {
+            background: #003d80;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #0056b3;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+
+        tr:hover td {
+            background: #f0f7ff;
+        }
+
+        tfoot td {
+            font-weight: 700;
+            background: #e7edf7;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            background: #ff4d4f;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #d9363e;
+            transform: scale(1.1);
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            background: #0056b3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #003d80;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DSR Report</h1>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div>
+                <label for="year">Year:</label>
+                <select id="year" onchange="filterData()">
+                    <option value="2024">2024</option>
+                    <option value="2023">2025</option>
+                    <option value="2023">2026</option>
+                    <option value="2023">2027</option>
+                    <option value="2023">2028</option>
+                    <option value="2023">2029</option>
+                    <option value="2023">2030</option>
+                    <option value="2023">2031</option>
+                    <option value="2023">2032</option>
+                    <option value="2023">2033</option>
+                    <option value="2023">2034</option>
+                    <option value="2023">2035</option>
+                    <option value="2023">2036</option>
+                    <option value="2023">2037</option>
+                    <option value="2023">2038</option>
+                    <option value="2023">2039</option>
+                    <option value="2023">2040</option>
+                    <option value="2023">2041</option>
+                    <option value="2023">2042</option>
+                    <option value="2023">2043</option>
+                    <option value="2023">2044</option>
+                    <option value="2023">2045</option>
+                    <option value="2023">2046</option>
+                    <option value="2023">2047</option>
+                    <option value="2023">2048</option>
+                    <option value="2023">2049</option>
+                    <option value="2023">2050</option>
+                    <option value="2023">2051</option>
+                    <option value="2023">2052</option>
+                </select>
+                <label for="month">Month:</label>
+                <select id="month" onchange="filterData()">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                    
+                </select>
+            </div>
+        </div>
+
+        <!-- Add Entry Form -->
+        <div class="form-section">
+            <input type="date" id="date" placeholder="Date">
+            <input type="text" id="company" placeholder="Company Name">
+            <input type="text" id="requirement" placeholder="Requirement">
+            <input type="number" id="sourced" placeholder="Profiles Sourced">
+            <input type="text" id="status" placeholder="Status">
+            <input type="number" id="duplicates" placeholder="Duplicates">
+            <input type="text" id="comment" placeholder="Comment">
+            <input type="number" id="submission" placeholder="Submissions">
+            <button onclick="addNewEntry()">Add</button>
+        </div>
+
+        <!-- DSR Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Company</th>
+                    <th>Requirement</th>
+                    <th>Sourced</th>
+                    <th>Status</th>
+                    <th>Duplicates</th>
+                    <th>Comment</th>
+                    <th>Submissions</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="dsr-body">
+                <!-- Data dynamically populated -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td id="total-sourced">0</td>
+                    <td></td>
+                    <td id="total-duplicates">0</td>
+                    <td></td>
+                    <td id="total-submissions">0</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <a href="employee_dashboard.html" class="back-btn">Back to Dashboard</a>
+    </div>
+
+    <script>
+        let dsrData = [];
+
+        function populateTable() {
+            const tbody = document.getElementById('dsr-body');
+            tbody.innerHTML = '';
+            let totalSourced = 0;
+            let totalDuplicates = 0;
+            let totalSubmissions = 0;
+
+            dsrData.forEach((item, index) => {
+                totalSourced += item.sourced;
+                totalDuplicates += item.duplicates;
+                totalSubmissions += item.submission;
+
+                const row = `
+                    <tr>
+                        <td>${item.date}</td>
+                        <td>${item.company}</td>
+                        <td>${item.requirement}</td>
+                        <td>${item.sourced}</td>
+                        <td>${item.status}</td>
+                        <td>${item.duplicates}</td>
+                        <td>${item.comment}</td>
+                        <td>${item.submission}</td>
+                        <td>
+                            <button class="btn" onclick="editEntry(${index})">Edit</button>
+                            <button class="btn" onclick="deleteEntry(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+
+            document.getElementById('total-sourced').textContent = totalSourced;
+            document.getElementById('total-duplicates').textContent = totalDuplicates;
+            document.getElementById('total-submissions').textContent = totalSubmissions;
+        }
+
+        function addNewEntry() {
+            const entry = {
+                date: document.getElementById('date').value,
+                company: document.getElementById('company').value,
+                requirement: document.getElementById('requirement').value,
+                sourced: parseInt(document.getElementById('sourced').value || 0),
+                status: document.getElementById('status').value,
+                duplicates: parseInt(document.getElementById('duplicates').value || 0),
+                comment: document.getElementById('comment').value,
+                submission: parseInt(document.getElementById('submission').value || 0),
+            };
+
+            dsrData.push(entry);
+            populateTable();
+        }
+
+        function editEntry(index) {
+            const item = dsrData[index];
+            document.getElementById('date').value = item.date;
+            document.getElementById('company').value = item.company;
+            document.getElementById('requirement').value = item.requirement;
+            document.getElementById('sourced').value = item.sourced;
+            document.getElementById('status').value = item.status;
+            document.getElementById('duplicates').value = item.duplicates;
+            document.getElementById('comment').value = item.comment;
+            document.getElementById('submission').value = item.submission;
+
+            dsrData.splice(index, 1);
+            populateTable();
+        }
+
+        function deleteEntry(index) {
+            dsrData.splice(index, 1);
+            populateTable();
+        }
+
+        populateTable();
+    </script>
+</body>
+</html>
